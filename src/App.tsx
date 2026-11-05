@@ -1,122 +1,34 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// import { SortingArena } from './features/sorting'
+// import { ComplexitySimulator } from './features/complexity'
+// import { RecursionTree } from './features/recursion'
+// import { QuizTrainer } from './features/quiz'
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+export default function App() {
+    const [activeTab, setActiveTab] = useState('sorting')
 
-      <div className="ticks"></div>
+    return (
+        <div className="min-h-screen bg-slate-900 text-slate-200 font-sans">
+            {/* Навігаційна панель */}
+            <header className="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
+                <h1 className="text-2xl font-bold text-sky-500">AlgoLab</h1>
+                <nav className="flex gap-6">
+                    <button onClick={() => setActiveTab('sorting')} className={`hover:text-sky-400 transition-colors ${activeTab === 'sorting' ? 'text-sky-500 font-semibold' : 'text-slate-400'}`}>Сортування</button>
+                    <button onClick={() => setActiveTab('complexity')} className={`hover:text-emerald-400 transition-colors ${activeTab === 'complexity' ? 'text-emerald-500 font-semibold' : 'text-slate-400'}`}>Складність T(n)</button>
+                    <button onClick={() => setActiveTab('recursion')} className={`hover:text-rose-400 transition-colors ${activeTab === 'recursion' ? 'text-rose-500 font-semibold' : 'text-slate-400'}`}>Рекурсія</button>
+                    <button onClick={() => setActiveTab('quiz')} className={`hover:text-amber-400 transition-colors ${activeTab === 'quiz' ? 'text-amber-500 font-semibold' : 'text-slate-400'}`}>Тренажер</button>
+                </nav>
+            </header>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
+            {/* Робоча область, куди будуть підставлятися модулі колег */}
+            <main className="p-6">
+                {activeTab === 'sorting' && <div className="text-slate-400">Модуль сортування в розробці... {/* <SortingArena /> */}</div>}
+                {activeTab === 'complexity' && <div className="text-slate-400">Модуль складності в розробці... {/* <ComplexitySimulator /> */}</div>}
+                {activeTab === 'recursion' && <div className="text-slate-400">Модуль рекурсії в розробці... {/* <RecursionTree /> */}</div>}
+                {activeTab === 'quiz' && <div className="text-slate-400">Модуль тренажера в розробці... {/* <QuizTrainer /> */}</div>}
+            </main>
         </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    )
 }
-
-export default App
