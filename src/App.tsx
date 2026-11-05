@@ -4,7 +4,7 @@ import './App.css'
 import { SortingArena } from './features/sorting'
 // import { ComplexitySimulator } from './features/complexity'
 // import { RecursionTree } from './features/recursion'
-// import { QuizTrainer } from './features/quiz'
+import { QuizTrainer } from './features/quiz'
 
 export default function App() {
     const [activeTab, setActiveTab] = useState('sorting')
@@ -27,7 +27,7 @@ export default function App() {
                 {activeTab === 'sorting' && <SortingArena/>}
                 {activeTab === 'complexity' && <div className="text-slate-400">Модуль складності в розробці... {/* <ComplexitySimulator /> */}</div>}
                 {activeTab === 'recursion' && <div className="text-slate-400">Модуль рекурсії в розробці... {/* <RecursionTree /> */}</div>}
-                {activeTab === 'quiz' && <div className="text-slate-400">Модуль тренажера в розробці... {/* <QuizTrainer /> */}</div>}
+                {activeTab === 'quiz' && <QuizTrainer />}
             </main>
         </div>
     )
