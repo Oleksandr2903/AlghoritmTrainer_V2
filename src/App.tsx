@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 import { SortingArena } from './features/sorting'
-// import { ComplexitySimulator } from './features/complexity'
+import { ComplexitySimulator } from './features/complexity'
 // import { RecursionTree } from './features/recursion'
 import { QuizTrainer } from './features/quiz'
 
@@ -25,7 +25,7 @@ export default function App() {
             {/* Робоча область, куди будуть підставлятися модулі колег */}
             <main className="p-6">
                 {activeTab === 'sorting' && <SortingArena/>}
-                {activeTab === 'complexity' && <div className="text-slate-400">Модуль складності в розробці... {/* <ComplexitySimulator /> */}</div>}
+                {activeTab === 'complexity' && <ComplexitySimulator/>}
                 {activeTab === 'recursion' && <div className="text-slate-400">Модуль рекурсії в розробці... {/* <RecursionTree /> */}</div>}
                 {activeTab === 'quiz' && <QuizTrainer />}
             </main>
